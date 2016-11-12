@@ -20,16 +20,16 @@
     
     <tx:annotation-driven />
     
-<!--    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <!--    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url"
                   value="jdbc:mysql://localhost:3306/DvdLibrary" />
         <property name="username" value="dvdlibrary" />
         <property name="password" value="dvd" />
     </bean>-->
+<!--    
     
-    
-    <!-- BoneCP configuration -->
+     BoneCP configuration 
     <bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
         <property name="jdbcUrl" value="jdbc:mysql://joryeugene:3306/DvdLibrary" />
@@ -43,6 +43,13 @@
         <property name="acquireIncrement" value="5"/>
         <property name="statementsCacheSize" value="100"/>
         <property name="releaseHelperThreads" value="3"/>
+    </bean>
+    -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl" value="$jdbc:mysql://joryeugene:3306/DvdLibrary"/>
+        <property name="username" value="dvdlibrary"/>
+        <property name="password" value="dvdlibrary"/>
     </bean>
 
     <bean id="transactionManager"
