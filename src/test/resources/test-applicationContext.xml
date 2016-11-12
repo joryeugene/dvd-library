@@ -23,11 +23,9 @@
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url"
-                            value="jdbc:mysql://127.0.0.1:3306/DvdLibrary" />
-<!--        <property name="url"
-                  value="jdbc:mysql://198.199.106.67:3306/DvdLibrary" />-->
-        <property name="username" value="dvdlibrary" />
-        <property name="password" value="dvdlibrarydvdlibrary" />
+                  value="jdbc:mysql://localhost:3306/DvdLibrary" />
+        <property name="username" value="root" />
+        <property name="password" value="root" />
     </bean>
 
     <bean id="transactionManager"
