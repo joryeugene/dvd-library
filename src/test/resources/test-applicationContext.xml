@@ -20,26 +20,43 @@
     
     <tx:annotation-driven />
      
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<!--    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url"
                   value="jdbc:mysql://localhost:3306/DvdLibrary" />
         <property name="username" value="dvdlibrary" />
         <property name="password" value="dvd" />
+    </bean>-->
+    
+    
+    <!-- BoneCP configuration -->
+    <bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1/DvdLibrary" />
+        <property name="username" value="dvd"/>
+        <property name="password" value="dvd"/>
+        <property name="idleConnectionTestPeriod" value="60"/>
+        <property name="idleMaxAge" value="240"/>
+        <property name="maxConnectionsPerPartition" value="30"/>
+        <property name="minConnectionsPerPartition" value="10"/>
+        <property name="partitionCount" value="3"/>
+        <property name="acquireIncrement" value="5"/>
+        <property name="statementsCacheSize" value="100"/>
+        <property name="releaseHelperThreads" value="3"/>
     </bean>
 
     <bean id="transactionManager"
-        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
 
     <bean id="jdbcTemplate"
-    class="org.springframework.jdbc.core.JdbcTemplate">
+          class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource" />
     </bean>
 
     <bean id="dvdLibraryDao"
-        class="com.jorypestorious.dvdlibrarymvc3.dao.DVDLibraryDaoDbImpl">
+          class="com.jorypestorious.dvdlibrarymvc3.dao.DVDLibraryDaoDbImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate" />
     </bean> 
     
