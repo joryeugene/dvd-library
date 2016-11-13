@@ -1,14 +1,13 @@
-# Jory Pestorious - Individual Work
-This repo is for my work done while in **The Software Guild**.  
-![Software Guild Logo](swg.jpg)
+# DVD Library
 
 ## [Check it out: **Pestorious.com/Library**](http://pestorious.com/Library/home)
 For basic functionality, login with **user1** - _password_
 
 ### DVD Library - Main Page for Admin
-* Edit and Delete icons/buttons available when logged in as Admin
-* Add DVD tab added with logged in as Admin
-* Can sort DVD Library by title
+* Edit and Delete buttons available when logged in as admin
+* Add DVD tab available - DVD image and synopsis data is gathered through movie database API when new DVDs are added
+* Can sort alphabetically
+* In regular user mode, edit/delete/add functionality is hidden and restricted
 
 ![alt text](DvdLibrary01.png "DVD Library - Main Page for Admin")
 
