@@ -3,7 +3,7 @@ This repo is for my work done while in **The Software Guild**.
 ![Software Guild Logo](swg.jpg)
 
 ## [Check it out: **Pestorious.com/Library**](http://pestorious.com/Library/home)
-For basic functionality log in with **user1** - _password_
+For basic functionality, login with **user1** - _password_
 
 ### DVD Library - Main Page for Admin
 * Edit and Delete icons/buttons available when logged in as Admin
