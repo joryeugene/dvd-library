@@ -24,23 +24,8 @@ public class UserController {
         this.dao = dao;
         this.encoder = encoder;
     }
-    
-//    private void populate() {
-//        List users = dao.getAllUsers();
-//        
-//        if (users.size() < 1) {
-//            User user = new User();
-//            List<String> authorities = new ArrayList<>();
-//            authorities.add("ROLE_ADMIN");
-//            user.setAuthorities(authorities);
-//            String hashPw = encoder.encode("password");
-//            user.setPassword(hashPw);
-//            user.setUsername("admin");
-//            dao.addUser(user);
-//        }
-//    }
 
-    @RequestMapping(value = "/displayUserList", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String displayUserList(Map<String, Object> model) {
         List users = dao.getAllUsers();
         model.put("users", users);
@@ -64,12 +49,12 @@ public class UserController {
 
         dao.addUser(newUser);
 
-        return "redirect:displayUserList";
+        return "redirect:admin";
     }
 
     @RequestMapping(value = "/deleteUser", method = RequestMethod.GET)
     public String deleteUser(@RequestParam("username") String username, Map<String, Object> model) {
         dao.deleteUser(username);
-        return "redirect:displayUserList";
+        return "redirect:admin";
     }
 }
